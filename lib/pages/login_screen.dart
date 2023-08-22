@@ -45,7 +45,6 @@ class _LoginState extends State<Login> {
                       )
                       ),
                     ),
-                    Text('Hey person !')
                   ],
                 ),
                 )
