@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
+import '../resources/auth_methods.dart';
+import 'package:prac/resources/auth_methods.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,6 +12,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   void dummy() {}
+  final AuthMethods _authMethods = AuthMethods();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,26 +29,61 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: dummy,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(199, 237, 241, 214),
-                  foregroundColor: Color.fromARGB(181, 15, 15, 15)
-                ),
-                child: Column(
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: Container(
+                 height: 400, 
+                 width: double.infinity,
+                 color: Color.fromARGB(199, 237, 241, 214),
+                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(11.0),
-                      child: Text('Sign In',
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text('Login',
                       style: GoogleFonts.raleway(
                         fontWeight: FontWeight.w500,
                         fontSize: 25,
-                      )
+                      ),
                       ),
                     ),
+                    ElevatedButton(
+                      onPressed: () async{
+                        bool res = await _authMethods.signInWithGoogle(context);
+                        if(res) {
+                          Navigator.pushNamed(context, '/home');
+                        }
+                      },
+                      child: Text('Sign In with Google',
+                      style: GoogleFonts.raleway(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 25,
+                      ),
+                      )
+                      )
                   ],
+                 ),
                 ),
-                )
+              ),
+              // ElevatedButton(
+              //   onPressed: dummy,
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: Color.fromARGB(199, 237, 241, 214),
+              //     foregroundColor: Color.fromARGB(181, 15, 15, 15)
+              //   ),
+              //   child: Column(
+              //     children: [
+              //       Padding(
+              //         padding: const EdgeInsets.all(11.0),
+              //         child: Text('Sign In',
+              //         style: GoogleFonts.raleway(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 25,
+              //         )
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              //   )
             ],
           ),
         ),
