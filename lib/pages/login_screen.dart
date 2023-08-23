@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 
 class Login extends StatefulWidget {
@@ -31,8 +30,8 @@ class _LoginState extends State<Login> {
               ElevatedButton(
                 onPressed: dummy,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(199, 237, 241, 214),
-                  foregroundColor: Color.fromARGB(181, 15, 15, 15)
+                  backgroundColor: const Color.fromARGB(199, 237, 241, 214),
+                  foregroundColor: const Color.fromARGB(181, 15, 15, 15)
                 ),
                 child: Column(
                   children: [

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prac/pages/intro_screen.dart';
 import 'package:prac/pages/login_screen.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,11 +12,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'practise',
       theme: ThemeData(),
-      home: Login(),
-      );
+      home: const IntroScreen(),
+    );
   }
 }
