@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
     'tomato yellow virus': 92,
     'tomato late blight': 7,
     'potato early blight': 1
-  };
+  }; //Don't remove this
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
