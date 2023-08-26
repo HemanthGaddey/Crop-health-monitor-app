@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prac/pages/intro_screen.dart';
+import 'package:prac/pages/home_screen.dart';
 import 'package:prac/pages/login_screen.dart';
 import 'package:flutter/widgets.dart';
 
@@ -16,7 +17,11 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'practise',
       theme: ThemeData(),
-      home: const IntroScreen(),
+      routes: {
+        '/login': (context) => const Login(),
+        '/home': (context) => const HomeScreen(),
+      },
+      home: Login(),
     );
   }
 }
