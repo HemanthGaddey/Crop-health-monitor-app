@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:prac/login_page.dart';
 import 'package:prac/pages/home_screen.dart';
-import 'package:prac/login_screen.dart';
+// import 'package:prac/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
@@ -12,6 +11,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_ui_auth/src/providers/email_auth_provider.dart'
     as email_auth;
 import './pages/home_screen.dart';
+import 'package:prac/pages/intro_screen.dart';
+import 'package:prac/pages/home_screen.dart';
+import 'package:prac/pages/results_screen.dart';
+import 'package:flutter/widgets.dart';
+import './login_screen.dart';
 
 void main() async {
   // runApp(const MainApp());
@@ -202,10 +206,30 @@ class App extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
-      routerConfig: _router, // new
-    );
-  }
+      routerConfig: _router,);
+      } // new
 }
+// class MainApp extends StatelessWidget {
+//   const MainApp({super.key});
+//   static var l = {
+//     'tomato yellow virus': 92,
+//     'tomato late blight': 7,
+//     'potato early blight': 1
+//   }; //Don't remove this
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'practise',
+//       theme: ThemeData(),
+//       routes: {
+//         '/login': (context) => const Login(),
+//         '/home': (context) => const HomeScreen(),
+//       },
+//       home: Login(),
+//     );
+//   }
+// }
 
 // class MainApp extends StatelessWidget {
 //   const MainApp({super.key});
