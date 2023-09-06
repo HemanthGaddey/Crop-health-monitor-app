@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart' // new
     hide EmailAuthProvider, PhoneAuthProvider;    // new
 import 'package:provider/provider.dart';          // new
@@ -7,14 +6,14 @@ import 'package:provider/provider.dart';          // new
 import 'app_state.dart';                          // new
 import 'pages/authentication.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Loginp extends StatefulWidget {
+  const Loginp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Loginp> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<Loginp> {
   void dummy() {}
   @override
   Widget build(BuildContext context) {
@@ -32,23 +31,24 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              
               Padding(
                 padding: const EdgeInsets.all(50.0),
                 child: Container(
-                 height: 400, 
+                 height: 200, 
                  width: double.infinity,
                  color: const Color.fromARGB(199, 237, 241, 214),
                  child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text('Login',
-                      style: GoogleFonts.raleway(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 25,
-                      ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(15.0),
+                    //   child: Text('SignIn to experience the effect of AI on monitoring',
+                    //   style: GoogleFonts.raleway(
+                    //     fontWeight: FontWeight.w500,
+                    //     fontSize: 25,
+                    //   ),
+                    //   ),
+                    // ),
                     // ElevatedButton(
                     //   onPressed: dummy,
                     //   child: Text('Sign In with Google',

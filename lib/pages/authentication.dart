@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prac/login_page.dart';
 import 'widgets.dart';
 
 class AuthFunc extends StatelessWidget {
@@ -27,7 +28,7 @@ class AuthFunc extends StatelessWidget {
                       onPressed: () {
                         !loggedIn ? context.push('/sign-in') : signOut();
                       },
-                      child: Text('Sign In with Google',
+                      child: Text('Sign In',
                       style: GoogleFonts.raleway(
                         fontWeight: FontWeight.w500,
                         fontSize: 25,
@@ -42,14 +43,16 @@ class AuthFunc extends StatelessWidget {
         ),
         Visibility(
             visible: loggedIn,
+            // child: const HomePage(),
             child: Padding(
               padding: const EdgeInsets.only(left: 24, bottom: 8),
               child: StyledButton(
                   onPressed: () {
-                    context.push('/profile');
+                    context.push('/home');
                   },
-                  child: const Text('Profile')),
-            ))
+                  child: const Text('Go to Home')),
+            )
+            )
       ],
     );
   }
