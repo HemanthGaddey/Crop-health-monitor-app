@@ -16,13 +16,15 @@ import 'package:prac/pages/home_screen.dart';
 import 'package:prac/pages/results_screen.dart';
 import 'package:flutter/widgets.dart';
 import './login_screen.dart';
+import './pages/analyze_screen.dart';
+import 'package:prac/pages/about_screen.dart';
 
 void main() async {
   // runApp(const MainApp());
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseUIAuth.configureProviders([email_auth.EmailAuthProvider()]);
 
@@ -31,6 +33,7 @@ void main() async {
     builder: ((context, child) => const App()),
   ));
 }
+
 final _router = GoRouter(
   routes: [
     GoRoute(
@@ -91,6 +94,14 @@ final _router = GoRouter(
         GoRoute(
           path: 'home',
           builder: (context, state) => const HomeScreen(),
+        ),
+        GoRoute(
+          path: 'analyze',
+          builder: (context, state) => const AnalyzeScreen(),
+        ),
+        GoRoute(
+          path: 'about',
+          builder: (context, state) => const AboutPage(),
         ),
         GoRoute(
           path: 'profile',
@@ -206,8 +217,9 @@ class App extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
-      routerConfig: _router,);
-      } // new
+      routerConfig: _router,
+    );
+  } // new
 }
 // class MainApp extends StatelessWidget {
 //   const MainApp({super.key});

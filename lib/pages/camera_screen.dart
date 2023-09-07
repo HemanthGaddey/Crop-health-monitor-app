@@ -55,7 +55,7 @@ class _CameraAppState extends State<CameraApp> {
     final returnedImage =
         await ImagePicker().pickImage(source: ImageSource.camera);
 
-    //if (returnedImage == null) return;
+    if (returnedImage == null) return;
     setState(() {
       _selectedImage = File(returnedImage!.path);
     });

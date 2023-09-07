@@ -17,49 +17,43 @@ class TopBody extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: size.height*0.3,
+          height: size.height * 0.3,
           width: double.maxFinite,
           decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 86,133,94),
-                  borderRadius: BorderRadius.only(
-                    // bottomLeft: Radius.circular(36),
-                    bottomRight: Radius.circular(36)
-                  )
-                ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                   "hello.. user",
-                  style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            color: Color.fromARGB(255,229,220,165)
-                  )
-                ),
+              color: Color.fromARGB(255, 86, 133, 94),
+              borderRadius: BorderRadius.only(
+                  // bottomLeft: Radius.circular(36),
+                  bottomRight: Radius.circular(36))),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 16.0, 0),
+                child: Text("hello.. user",
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 229, 220, 165))),
               ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 16.0),
-                    child: Text(
-                      'CHM.',
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 16.0),
+                  child: Text('CHM.',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 90,
-                              color: Color.fromARGB(255,229,220,165)
-                    )
-                    ),
-                  ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 90,
+                          color: Color.fromARGB(255, 229, 220, 165))),
                 ),
               ),
-      ]),
-    ),
-    ],
+            ),
+          ]),
+        ),
+      ],
     );
   }
 }

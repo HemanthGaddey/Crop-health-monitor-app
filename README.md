@@ -1,3 +1,3 @@
-# prac
+# Crop Health Monitoring App
 
-A new Flutter project.
+download the latest apk from here:
