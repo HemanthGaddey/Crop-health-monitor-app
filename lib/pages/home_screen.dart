@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             flex: 1,
                             child: FloatingActionButton(
                               onPressed: () {
-                                context.push('/analyze');
+                                context.push('/about');
                               },
                               backgroundColor:
                                   Color.fromARGB(255, 229, 220, 165),

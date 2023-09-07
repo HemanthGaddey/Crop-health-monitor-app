@@ -116,7 +116,7 @@ class _AnalyzePageState extends State<AnalyzePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Card(
-              elevation: 1.0,
+              elevation: 5.0,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -180,7 +180,7 @@ class _AnalyzePageState extends State<AnalyzePage> {
               onPressed: () {
                 _clear();
               },
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: Colors.redAccent,
               tooltip: 'Delete',
               child: const Icon(Icons.delete),
             ),
@@ -199,11 +199,14 @@ class _AnalyzePageState extends State<AnalyzePage> {
             else
               Padding(
                 padding: const EdgeInsets.only(left: 32.0),
-                child: FloatingActionButton(
-                  onPressed: () {},
-                  backgroundColor: const Color.fromARGB(255, 28, 199, 119),
-                  tooltip: 'Crop',
-                  child: const Text("Analyze"),
+                child: SizedBox(
+                  width: 100,
+                  child: FloatingActionButton(
+                    onPressed: () {},
+                    backgroundColor: const Color.fromARGB(255, 28, 199, 119),
+                    tooltip: 'Crop',
+                    child: const Text("Analyze"),
+                  ),
                 ),
               ),
           ],
@@ -217,7 +220,7 @@ class _AnalyzePageState extends State<AnalyzePage> {
       child: Column(
         children: [
           Card(
-            elevation: 1.0,
+            elevation: 0.5,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.0),
             ),
@@ -240,7 +243,7 @@ class _AnalyzePageState extends State<AnalyzePage> {
                         borderType: BorderType.RRect,
                         dashPattern: const [8, 4],
                         color:
-                            Theme.of(context).highlightColor.withOpacity(0.4),
+                            Color.fromARGB(255, 86, 133, 94).withOpacity(0.4),
                         child: Center(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -248,26 +251,14 @@ class _AnalyzePageState extends State<AnalyzePage> {
                             children: [
                               Icon(
                                 Icons.image,
-                                color: Theme.of(context).highlightColor,
+                                color: Color.fromARGB(255, 86, 133, 94),
                                 size: 80.0,
                               ),
                               const SizedBox(height: 24.0),
-                              Text(
-                                'Upload an image to start',
-                                style: kIsWeb
-                                    ? Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall!
-                                        .copyWith(
-                                            color: Theme.of(context)
-                                                .highlightColor)
-                                    : Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium!
-                                        .copyWith(
-                                            color: Theme.of(context)
-                                                .highlightColor),
-                              )
+                              Text('Upload an image to start',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 86, 133, 94),
+                                  ))
                             ],
                           ),
                         ),
@@ -283,14 +274,20 @@ class _AnalyzePageState extends State<AnalyzePage> {
                             onPressed: () {
                               _pickImageFromGallery();
                             },
-                            child: const Icon(Icons.insert_photo_rounded),
+                            child: const Icon(
+                              Icons.insert_photo_rounded,
+                              color: Color.fromARGB(255, 86, 133, 94),
+                            ),
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           ElevatedButton(
                             onPressed: () {
                               _pickImageFromCamera();
                             },
-                            child: const Icon(Icons.camera_alt_rounded),
+                            child: const Icon(
+                              Icons.camera_alt_rounded,
+                              color: Color.fromARGB(255, 86, 133, 94),
+                            ),
                           ),
                         ],
                       )),
@@ -312,7 +309,7 @@ class _AnalyzePageState extends State<AnalyzePage> {
         uiSettings: [
           AndroidUiSettings(
             toolbarTitle: 'Cropper',
-            toolbarColor: Colors.blueAccent,
+            toolbarColor: Color.fromARGB(255, 86, 133, 94),
             toolbarWidgetColor: Colors.white,
             initAspectRatio: CropAspectRatioPreset.original,
             lockAspectRatio: false,
