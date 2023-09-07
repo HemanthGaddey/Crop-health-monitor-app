@@ -17,6 +17,7 @@ import 'package:prac/pages/results_screen.dart';
 import 'package:flutter/widgets.dart';
 import './login_screen.dart';
 import './pages/analyze_screen.dart';
+import 'package:prac/pages/about_screen.dart';
 
 void main() async {
   // runApp(const MainApp());
@@ -97,6 +98,10 @@ final _router = GoRouter(
         GoRoute(
           path: 'analyze',
           builder: (context, state) => const AnalyzeScreen(),
+        ),
+        GoRoute(
+          path: 'about',
+          builder: (context, state) => const AboutPage(),
         ),
         GoRoute(
           path: 'profile',

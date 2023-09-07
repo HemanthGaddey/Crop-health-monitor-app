@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Color.fromARGB(255, 86, 133, 94),
           leading: IconButton(
             onPressed: () {
-              context.push('/analyze');
+              context.push('/about');
             },
             icon: Icon(
               Icons.menu,

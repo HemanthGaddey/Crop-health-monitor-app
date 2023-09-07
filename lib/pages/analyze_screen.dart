@@ -14,7 +14,7 @@ class AnalyzeScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // debugShowCheckedModeBanner: false,
       // title: 'Flutter Demo',
       // theme: ThemeData(
