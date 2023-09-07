@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './widgets.dart';
 
@@ -11,15 +12,105 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        backgroundColor: Color.fromARGB(255,229,220,165),
+        child: ListView( 
+          children: [
+            Container(
+              height: size.height*0.3,
+              width: double.maxFinite,
+              decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 86,133,94),
+                      borderRadius: BorderRadius.only(
+                        // bottomLeft: Radius.circular(36),
+                        bottomRight: Radius.circular(36)
+                      )
+              ),
+              child: 
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 16.0),
+                    child: Text(
+                      'CHM.',
+                      textAlign: TextAlign.left,
+                      style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 70,
+                              color: Color.fromARGB(255,229,220,165)
+                      )
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Flexible(
+              child: Container(
+                height: 40,
+              ),
+            ),
+            Container(
+              height: size.height*0.1,
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 86,133,94),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(36),
+                  bottomRight: Radius.circular(36)
+                ) 
+              ),
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Text(
+                          "User Details",
+                          style: GoogleFonts.poppins(
+                                color: Color.fromARGB(255, 229,220,165),
+                                fontSize: 23,
+                                fontWeight: FontWeight.w400
+                              ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 40),
+                      child: FloatingActionButton(
+                      onPressed: () {
+                        context.push("/profile");
+                      },
+                      backgroundColor: Color.fromARGB(255, 229,220,165),
+                      foregroundColor: Color.fromARGB(255, 86,133,94),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(90.0), // Adjust the radius as needed
+                      ),
+                      child: Text("Go"),
+                                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color.fromARGB(255, 86,133,94),
         leading: IconButton(
-          onPressed: () {}, 
+          onPressed: () => _scaffoldKey.currentState?.openDrawer(), 
           icon: Icon(Icons.menu, color: Color.fromARGB(255, 229,220,165),size: 35,),
           iconSize: 8,
           color: Color.fromARGB(255, 229,220,165),
