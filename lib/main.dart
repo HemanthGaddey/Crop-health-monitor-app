@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prac/pages/home_screen.dart';
 // import 'package:prac/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:prac/pages/onboarding_screen.dart';
 import 'firebase_options.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,7 @@ final _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const Loginp(),
+      builder: (context, state) => const OnBoardingPage(),
       routes: [
         GoRoute(
           path: 'sign-in',
@@ -208,9 +209,9 @@ class App extends StatelessWidget {
       title: 'Firebase Application',
       theme: ThemeData(
         buttonTheme: Theme.of(context).buttonTheme.copyWith(
-              highlightColor: Colors.deepPurple,
+              highlightColor: Color.fromARGB(255, 86, 133, 94),
             ),
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.yellow,
         textTheme: GoogleFonts.robotoTextTheme(
           Theme.of(context).textTheme,
         ),

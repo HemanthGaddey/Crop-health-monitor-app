@@ -3,7 +3,23 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:prac/login_screen.dart';
 import 'package:prac/pages/home_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:prac/login_page.dart';
+import 'widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart' // new
+    hide
+        EmailAuthProvider,
+        PhoneAuthProvider; // new
+import 'package:provider/provider.dart'; // new
+
+import '../app_state.dart'; // new
+import './authentication.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -16,9 +32,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
-    );
+    context.push('/analyze');
   }
 
   Widget _buildFullscreenImage() {
@@ -62,17 +76,17 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       //     ),
       //   ),
       // ),
-      globalFooter: SizedBox(
-        width: double.infinity,
-        height: 60,
-        child: ElevatedButton(
-          child: const Text(
-            'skip',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-          ),
-          onPressed: () => _onIntroEnd(context),
-        ),
-      ),
+      // globalFooter: SizedBox(
+      //   width: double.infinity,
+      //   height: 60,
+      //   child: ElevatedButton(
+      //     child: const Text(
+      //       'skip',
+      //       style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+      //     ),
+      //     onPressed: () => _onIntroEnd(context),
+      //   ),
+      // ),
       pages: [
         PageViewModel(
           title: "Plant Disease Detector",
@@ -136,14 +150,21 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
           title: "Thank you!",
 
-          bodyWidget: const Column(
+          bodyWidget: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text("We hope you find Plant Disease Detector", style: bodyStyle),
               Text("helpful. If you have any questions,", style: bodyStyle),
               Text("please contact us.", style: bodyStyle),
-              SizedBox(height: 300),
+              Consumer<ApplicationState>(
+                builder: (context, appState, _) => AuthFunc(
+                    loggedIn: appState.loggedIn,
+                    signOut: () {
+                      FirebaseAuth.instance.signOut();
+                    }),
+              ),
+              SizedBox(height: 100),
             ],
           ),
           decoration: pageDecoration.copyWith(
@@ -159,6 +180,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: false,
+      showDoneButton: false,
       skipOrBackFlex: 0,
       nextFlex: 0,
       showBackButton: false,
@@ -181,7 +203,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         ),
       ),
       dotsContainerDecorator: const ShapeDecoration(
-        color: Colors.black87,
+        color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
         ),
